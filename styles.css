@@ -1,0 +1,125 @@
+/* ===== TerraElix theme tokens & keyframes (ported 1:1 from original landing page) ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes wordReveal {
+  from { opacity: 0; transform: translateY(100%); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0px); }
+}
+
+.animate-fade-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade-in { animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-slide-left { animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-slide-right { animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-scale-in { animation: scaleIn 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-word-reveal { display: inline-block; animation: wordReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+.delay-200 { animation-delay: 200ms !important; }
+.delay-300 { animation-delay: 300ms !important; }
+.delay-400 { animation-delay: 400ms !important; }
+.delay-500 { animation-delay: 500ms !important; }
+.delay-600 { animation-delay: 600ms !important; }
+.delay-700 { animation-delay: 700ms !important; }
+.delay-800 { animation-delay: 800ms !important; }
+.delay-900 { animation-delay: 900ms !important; }
+.delay-1000 { animation-delay: 1000ms !important; }
+.delay-1100 { animation-delay: 1100ms !important; }
+
+/* ===== Scroll reveal (extends the same fadeUp language to the rest of the site) ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.reveal.is-visible {
+  animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ===== Navbar: transparent-over-hero, solid once scrolled ===== */
+#main-navbar {
+  color: #fff;
+}
+#main-navbar .nav-link,
+#main-navbar .brand-link {
+  color: #fff;
+}
+#main-navbar .icon-btn {
+  color: #fff;
+}
+#main-navbar .icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+#main-navbar.scrolled {
+  background: #FCF9F2;
+  border-bottom: 1px solid #E3D9CE;
+  color: #2E1A12;
+}
+#main-navbar.scrolled .nav-link,
+#main-navbar.scrolled .brand-link {
+  color: #2E1A12;
+}
+#main-navbar.scrolled .icon-btn {
+  color: #2E1A12;
+}
+#main-navbar.scrolled .icon-btn:hover {
+  background: rgba(46, 26, 18, 0.08);
+}
+
+/* ===== Marquee ===== */
+.marquee-track {
+  animation: marquee 22s linear infinite;
+  width: max-content;
+}
+.marquee-track:hover { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ===== Misc ===== */
+.line-clamp-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+::selection {
+  background: #EADDC9;
+  color: #2E1A12;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
